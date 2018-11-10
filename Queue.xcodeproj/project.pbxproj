@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		24C6BB5962E18C4B5604B264 /* Pods_Queue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA40A6DB1247C23EBE940AC0 /* Pods_Queue.framework */; };
 		42BEFDEE21975464009068E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEFDED21975464009068E9 /* AppDelegate.swift */; };
-		42BEFDF021975464009068E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEFDEF21975464009068E9 /* ViewController.swift */; };
+		42BEFDF021975464009068E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEFDEF21975464009068E9 /* MapViewController.swift */; };
 		42BEFDF321975464009068E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEFDF121975464009068E9 /* Main.storyboard */; };
 		42BEFDF521975465009068E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BEFDF421975465009068E9 /* Assets.xcassets */; };
 		42BEFDF821975465009068E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEFDF621975465009068E9 /* LaunchScreen.storyboard */; };
+		42D7F29421975FA900090A3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7F29321975FA900090A3F /* LoginViewController.swift */; };
+		42D7F298219761CA00090A3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42D7F297219761CA00090A3F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		42BEFDEA21975464009068E9 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BEFDED21975464009068E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42BEFDEF21975464009068E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42BEFDEF21975464009068E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		42BEFDF221975464009068E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42BEFDF421975465009068E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42BEFDF721975465009068E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42BEFDF921975465009068E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42D7F29321975FA900090A3F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		42D7F297219761CA00090A3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		644C0808C272F5DA68B15714 /* Pods-Queue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Queue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Queue/Pods-Queue.release.xcconfig"; sourceTree = "<group>"; };
 		AA40A6DB1247C23EBE940AC0 /* Pods_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE54073D78590589CA01A79D /* Pods-Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Queue/Pods-Queue.debug.xcconfig"; sourceTree = "<group>"; };
@@ -62,10 +66,12 @@
 			isa = PBXGroup;
 			children = (
 				42BEFDED21975464009068E9 /* AppDelegate.swift */,
-				42BEFDEF21975464009068E9 /* ViewController.swift */,
+				42BEFDEF21975464009068E9 /* MapViewController.swift */,
+				42D7F29321975FA900090A3F /* LoginViewController.swift */,
 				42BEFDF121975464009068E9 /* Main.storyboard */,
 				42BEFDF421975465009068E9 /* Assets.xcassets */,
 				42BEFDF621975465009068E9 /* LaunchScreen.storyboard */,
+				42D7F297219761CA00090A3F /* GoogleService-Info.plist */,
 				42BEFDF921975465009068E9 /* Info.plist */,
 			);
 			path = Queue;
@@ -150,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42BEFDF821975465009068E9 /* LaunchScreen.storyboard in Resources */,
+				42D7F298219761CA00090A3F /* GoogleService-Info.plist in Resources */,
 				42BEFDF521975465009068E9 /* Assets.xcassets in Resources */,
 				42BEFDF321975464009068E9 /* Main.storyboard in Resources */,
 			);
@@ -231,7 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42BEFDF021975464009068E9 /* ViewController.swift in Sources */,
+				42D7F29421975FA900090A3F /* LoginViewController.swift in Sources */,
+				42BEFDF021975464009068E9 /* MapViewController.swift in Sources */,
 				42BEFDEE21975464009068E9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +391,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Queue/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aaronkarpati.Queue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -401,7 +412,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Queue/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aaronkarpati.Queue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
