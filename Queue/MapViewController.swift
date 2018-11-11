@@ -60,16 +60,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func leaveQueue(){
-        let item = currentEvent
-        let itemKey = item.key
         //let userID = Auth.auth().currentUser!.uid
         let username = Auth.auth().currentUser?.displayName!
         let messagesDB = Database.database().reference().child("Members/"+itemKey+"/"+username!+"")
         messagesDB.removeValue()
         print("removed")
-        
-        self.setVisibilityLeave(bool: true)
-        self.setVisibilityJoin(bool: false)
     }
     
     //Create Queue
