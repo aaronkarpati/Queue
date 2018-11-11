@@ -15,14 +15,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
         if Auth.auth().currentUser != nil {
             performSegue(withIdentifier: "goToMap", sender: self)
+            print(Auth.auth().currentUser?.email!)
         }
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        
+        
+        //GIDSignIn.sharedInstance().signIn()
+        
+                
         
         // Do any additional setup after loading the view.
     }

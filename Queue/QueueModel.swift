@@ -10,7 +10,6 @@ import Foundation
 
 class Queue {
     
-    var address = String()
     var id = String()
     var long = Double()
     var lat = Double()

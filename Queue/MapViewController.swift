@@ -8,39 +8,105 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
+import Firebase
+import FirebaseDatabase
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController,CLLocationManagerDelegate {
 
-
-    
+    @IBOutlet weak var queMapView: GMSMapView!
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    @IBOutlet weak var queMapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
-    var zoomLevel: Float = 15.0
     
+
     
    override func viewDidLoad() {
         super.viewDidLoad()
     
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
-    queMapView.camera = camera
-    showMarker(position: camera.target)
+    //Location Manager code to fetch current location
+    self.locationManager.delegate = self
+    self.locationManager.requestWhenInUseAuthorization()
+    self.locationManager.startUpdatingLocation()
+    
+    //Map
+    queMapView.isMyLocationEnabled = true
     
     }
     
-    // Creates a marker in the center of the map.
-    func showMarker(position: CLLocationCoordinate2D){
-        let marker = GMSMarker()
-        marker.position = position
-        marker.title = "Palo Alto"
-        marker.snippet = "San Francisco"
-        marker.map = queMapView
+    @IBAction func createQueue(_ sender: Any) {
+        createQueue()
     }
-
-
+    //Location Manager delegates
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        currentLocation = locations.last
+        let camera = GMSCameraPosition.camera(withLatitude: (currentLocation?.coordinate.latitude)!, longitude: (currentLocation?.coordinate.longitude)!, zoom: 5.0)
+        
+        self.queMapView?.animate(to: camera)
+        
+        //Finally stop updating location otherwise it will come again and again in this delegate
+        self.locationManager.stopUpdatingLocation()
+        
+    }
+    
+    func joinQueue(){
+            let item = currentEvent
+            let itemKey = item.key
+            let username = Auth.auth().currentUser?.displayName!
+            let messagesDB = Database.database().reference().child("Members/"+itemKey+"/")
+            //let userID = Auth.auth().currentUser!.uid
+            let data = [username: true]
+            messagesDB.updateChildValues(data)
+            print("joined")
+    }
+    
+    func leaveQueue(){
+        let item = currentEvent
+        let itemKey = item.key
+        //let userID = Auth.auth().currentUser!.uid
+        let username = Auth.auth().currentUser?.displayName!
+        let messagesDB = Database.database().reference().child("Members/"+itemKey+"/"+username!+"")
+        messagesDB.removeValue()
+        print("removed")
+        
+        self.setVisibilityLeave(bool: true)
+        self.setVisibilityJoin(bool: false)
+    }
+    
+    //Create Queue
+    func createQueue(){
+        let eventsDb = Database.database().reference().child("Queues")
+        let ref = eventsDb.childByAutoId()
+        let eventDict = ["id": ref.childByAutoId().key!,
+                         "long": currentLocation?.coordinate.latitude,
+                         "lat": currentLocation?.coordinate.longitude] as [String : Any]
+        
+        ref.setValue(eventDict){
+            (error, reference) in
+            
+            if error != nil {
+                print(error!)
+            }
+            else {
+                print("Queue is active")
+            }
+        }
+        
+    }
+    
+    @IBAction func logOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            performSegue(withIdentifier: "logOut", sender: self)
+            print("logged out")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        
+    }
+    
 }
+
+
 

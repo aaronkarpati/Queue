@@ -8,15 +8,18 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
 
     var window: UIWindow?
+    var ref: DatabaseReference?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -49,6 +52,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 // ...
                 return
             }
+            
+            print("Google Authentification Success")
+            
+  
+                self.ref = Database.database().reference()
+                let user = Auth.auth().currentUser
+                
+                self.ref!.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let snapshot = snapshot.value as? NSDictionary
+                    
+                    if(snapshot == nil){
+                        self.ref!.child("Users").child(user!.uid).child("email").setValue(user?.email)
+                    }
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController")
+                    self.window?.rootViewController = initialViewController
+                    
+                })
+            
+    
             // User is signed in
             //...
         }

@@ -29,7 +29,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ct2-sK-uqW"/>
                     <connections>
-                        <outlet property="signInButton" destination="ZSR-xD-N5u" id="iL0-kY-y1n"/>
+                        <outlet property="signInButton" destination="ZSR-xD-N5u" id="hKf-i5-fEN"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="goToMap" id="IBx-bd-lTV"/>
                     </connections>
                 </viewController>
@@ -40,16 +40,33 @@
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coe-vR-7fc" customClass="GMSMapView">
-                                <rect key="frame" x="41" y="132" width="292" height="410"/>
+                                <rect key="frame" x="16" y="97" width="343" height="451"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn9-gI-PCc">
+                                <rect key="frame" x="95" y="556" width="184" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87532836199999997" green="0.2839423418" blue="0.37893843649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Create shit"/>
+                                <connections>
+                                    <action selector="createQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfB-re-3su"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iha-OH-mAF">
+                                <rect key="frame" x="164" y="620" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAq-x4-7gk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -57,6 +74,7 @@
                     <navigationItem key="navigationItem" id="Blm-ov-Eyk"/>
                     <connections>
                         <outlet property="queMapView" destination="coe-vR-7fc" id="b69-QV-Pya"/>
+                        <segue destination="uqU-tP-edx" kind="modal" identifier="logOut" id="RDP-8q-HvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -80,4 +98,7 @@
             <point key="canvasLocation" x="-740" y="27"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RDP-8q-HvA"/>
+    </inferredMetricsTieBreakers>
 </document>
