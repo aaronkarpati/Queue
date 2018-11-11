@@ -40,12 +40,13 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
         
         //Location Manager code to fetch current location and delegate mapView
         queMapView.delegate = self
+
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
         //Navbar-Opacity
-        self.navigationController!.navigationBar.isHidden = true
+        //self.navigationController!.navigationBar.isHidden = true
         
         //Button-Opacity
         joinQ.isHidden = true
@@ -58,6 +59,21 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     
+    func checkIfQueueEmpty(title: String){
+        let joined = geofireRef.child(title)
+        joined.observeSingleEvent(of: .value) { (snapshot) in
+        var c = snapshot.childSnapshot(forPath: "/Joined").exists()
+            if c == true{
+                print("joined exist")
+            }else{
+                joined.removeValue()
+                self.queMapView.clear()
+                self.putMarkersOnTheMap()
+                
+                print("queue removed")}
+        }
+    }
+    
     //Create a new Queue
     @IBAction func setAQueue(_ sender: Any) {
         self.queMapView.clear()
@@ -68,7 +84,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
        
         geoFire.setLocation(CLLocation(latitude: (self.currentLocation?.coordinate.latitude)!, longitude: (self.currentLocation?.coordinate.longitude)!), forKey: "\(number)")
         
-        geofireRef.child("\(number)").updateChildValues(data)
+        geofireRef.child("\(number)/Joined").updateChildValues(data)
         print("joined")
     }
     
@@ -96,8 +112,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
         
         circleQuery.observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
             let position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
             let marker = GMSMarker(position: position)
             marker.title = key!
+            marker.snippet = "Are you looking!"
             marker.map = self.queMapView
         })
     }
@@ -115,16 +133,17 @@ class MapViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func joinQ(_ sender: Any) {
         let data = [username: true]
-        geofireRef.child(marketTitle).updateChildValues(data)
+        geofireRef.child("\(marketTitle)/Joined").updateChildValues(data)
         print("joined")
         hiddenViews(join: true, leave: true, create: false)
         
     }
     
     @IBAction func leaveQ(_ sender: Any) {
-        geofireRef.child(marketTitle).child(username!).removeValue()
+        geofireRef.child("\(marketTitle)/Joined").child(username!).removeValue()
         print("removed")
         hiddenViews(join: true, leave: true, create: false)
+        checkIfQueueEmpty(title: marketTitle)
         
     }
     
@@ -164,12 +183,13 @@ func setButtonStyle(cell: UIButton){
     cell.layer.masksToBounds = false;
     cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.layer.cornerRadius).cgPath
 }
-// extension for GMSMapViewDelegate
+
 extension MapViewController: GMSMapViewDelegate {
     
     // tap map marker
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("didTap marker \(marker.title!)")
+        
         hiddenViews(join: false, leave: false, create: true)
         marketTitle = marker.title!
         // tap event handled by delegate
