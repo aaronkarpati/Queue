@@ -46,25 +46,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coe-vR-7fc" customClass="GMSMapView">
-                                <rect key="frame" x="16" y="97" width="343" height="451"/>
+                                <rect key="frame" x="16" y="63" width="343" height="485"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn9-gI-PCc">
-                                <rect key="frame" x="95" y="556" width="184" height="56"/>
+                                <rect key="frame" x="16" y="556" width="157" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87532836199999997" green="0.2839423418" blue="0.37893843649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Create shit"/>
+                                <state key="normal" title="CreateQ"/>
                                 <connections>
-                                    <action selector="createQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfB-re-3su"/>
+                                    <action selector="setAQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ws-CS-LOU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-yT-Pf6">
+                                <rect key="frame" x="205" y="556" width="154" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87532836199999997" green="0.2839423418" blue="0.37893843649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="JoinQ"/>
+                                <connections>
+                                    <action selector="joinQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="brG-gw-zgd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iha-OH-mAF">
-                                <rect key="frame" x="164" y="620" width="46" height="30"/>
+                                <rect key="frame" x="16" y="620" width="157" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.001546108979" green="0.106468983" blue="0.32422181960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.98040813207626343" green="0.94140070676803589" blue="0.93688410520553589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="LogOff"/>
                                 <connections>
                                     <action selector="logOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAq-x4-7gk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L48-0f-uI3">
+                                <rect key="frame" x="205" y="620" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.001546108979" green="0.106468983" blue="0.32422181960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.98040813207626343" green="0.94140070676803589" blue="0.93688410520553589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="LeaveQ"/>
+                                <connections>
+                                    <action selector="leaveQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDq-Rb-47o"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -13,6 +13,7 @@ class Queue {
     var id = String()
     var long = Double()
     var lat = Double()
+    var radius = Int()
     //LIST OF PEOPLE --> Firebase/Queue/id/people
     //COUNT OF PEOPLE -- people.count
     

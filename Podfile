@@ -15,6 +15,7 @@ pod 'FirebaseUI/Storage'
 pod 'GoogleSignIn'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'GeoFire'
 
 
 end
