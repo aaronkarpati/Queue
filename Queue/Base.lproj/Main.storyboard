@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coe-vR-7fc" customClass="GMSMapView">
-                                <rect key="frame" x="16" y="63" width="343" height="485"/>
+                                <rect key="frame" x="16" y="36" width="343" height="512"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -94,6 +94,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Blm-ov-Eyk"/>
                     <connections>
+                        <outlet property="createQ" destination="cn9-gI-PCc" id="6bf-Md-uNG"/>
+                        <outlet property="joinQ" destination="bxe-yT-Pf6" id="Ibz-4O-01R"/>
+                        <outlet property="leaveQ" destination="L48-0f-uI3" id="Wmm-On-VQM"/>
+                        <outlet property="logoutQ" destination="iha-OH-mAF" id="vW7-Kb-27D"/>
                         <outlet property="queMapView" destination="coe-vR-7fc" id="b69-QV-Pya"/>
                         <segue destination="uqU-tP-edx" kind="modal" identifier="logOut" id="RDP-8q-HvA"/>
                     </connections>

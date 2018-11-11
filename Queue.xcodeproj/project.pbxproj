@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		24C6BB5962E18C4B5604B264 /* Pods_Queue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA40A6DB1247C23EBE940AC0 /* Pods_Queue.framework */; };
-		428A495B219789FC0089AE2F /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428A495A219789FC0089AE2F /* QueueModel.swift */; };
 		42BEFDEE21975464009068E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEFDED21975464009068E9 /* AppDelegate.swift */; };
 		42BEFDF021975464009068E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEFDEF21975464009068E9 /* MapViewController.swift */; };
 		42BEFDF321975464009068E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEFDF121975464009068E9 /* Main.storyboard */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		428A495A219789FC0089AE2F /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
 		42BEFDEA21975464009068E9 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BEFDED21975464009068E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42BEFDEF21975464009068E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				42BEFDF621975465009068E9 /* LaunchScreen.storyboard */,
 				42D7F297219761CA00090A3F /* GoogleService-Info.plist */,
 				42BEFDF921975465009068E9 /* Info.plist */,
-				428A495A219789FC0089AE2F /* QueueModel.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -246,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D7F29421975FA900090A3F /* LoginViewController.swift in Sources */,
-				428A495B219789FC0089AE2F /* QueueModel.swift in Sources */,
 				42BEFDF021975464009068E9 /* MapViewController.swift in Sources */,
 				42BEFDEE21975464009068E9 /* AppDelegate.swift in Sources */,
 			);

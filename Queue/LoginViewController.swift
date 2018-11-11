@@ -25,14 +25,5 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             performSegue(withIdentifier: "goToMap", sender: self)
             print(Auth.auth().currentUser?.email!)
         }
-        
-        
-        //GIDSignIn.sharedInstance().signIn()
-        
-                
-        
-        // Do any additional setup after loading the view.
     }
-    
-
 }
